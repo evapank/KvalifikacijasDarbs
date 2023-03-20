@@ -22,7 +22,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "myuser_table")
+@Table(name = "myUser_table")
 @Entity
 public class MyUser {
 	
