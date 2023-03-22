@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -37,5 +39,10 @@ public class MyWebsite {
 	
 	@Column(name = "Template")
 	private TemplateEnum template;
+	
+	@Column(name = "Owner")
+	@ManyToOne
+	@JoinColumn(name = "idUser")
+	private MyUser owner;
 
 }

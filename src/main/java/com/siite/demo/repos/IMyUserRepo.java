@@ -7,4 +7,6 @@ import com.siite.demo.models.MyUser;
 
 public interface IMyUserRepo extends CrudRepository<MyUser, Integer>{
 
+	boolean existsByEmail(String email);
+
 }
