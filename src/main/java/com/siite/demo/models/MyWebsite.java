@@ -22,7 +22,7 @@ import lombok.Setter;
 @Entity
 public class MyWebsite {
 	
-	@Column(name = "IdUser")
+	@Column(name = "IdWeb")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
@@ -40,9 +40,8 @@ public class MyWebsite {
 	@Column(name = "Template")
 	private TemplateEnum template;
 	
-	@Column(name = "Owner")
 	@ManyToOne
-	@JoinColumn(name = "idUser")
+	@JoinColumn(name = "IdUser")
 	private MyUser owner;
 
 }
