@@ -1,0 +1,15 @@
+.homepage-title {
+	position: absolute;
+    width: 1440px;
+    height: 225px;
+    left: 0px;
+    top: 0px;
+    background: #8171C9;
+}
+
+.homepage-title h1{
+    text-align: center;
+    font-family: 'Sora';
+    color: black;
+    text-shadow: -2px 4px #28B1AF;
+}

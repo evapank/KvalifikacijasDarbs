@@ -43,5 +43,17 @@ public class MyWebsite {
 	@ManyToOne
 	@JoinColumn(name = "IdUser")
 	private MyUser owner;
+	
+	public MyWebsite(String title, String heading, String paragraph, TemplateEnum template, MyUser owner) {
+		this.title = title;
+		this.heading = heading;
+		this.paragraph = paragraph;
+		this.template = template;
+		this.owner = owner;
+	}
+	
+	public void deleteOwner() {
+		owner = null;
+	}
 
 }

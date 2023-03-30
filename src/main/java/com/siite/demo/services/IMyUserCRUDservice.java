@@ -6,4 +6,6 @@ public interface IMyUserCRUDservice {
 
 	boolean insertNewUser(MyUser user);
 
+	boolean deleteUserById(int userId);
+
 }
