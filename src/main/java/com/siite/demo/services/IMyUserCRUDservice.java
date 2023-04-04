@@ -10,4 +10,6 @@ public interface IMyUserCRUDservice {
 
 	boolean updateUserById(int userId, MyUser user);
 
+	MyUser readUserById(int userId) throws Exception;
+
 }

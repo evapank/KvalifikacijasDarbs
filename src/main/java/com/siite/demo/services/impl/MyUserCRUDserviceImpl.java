@@ -63,5 +63,16 @@ public class MyUserCRUDserviceImpl implements IMyUserCRUDservice {
 		}
 		return false;
 	}
+	
+	@Override
+	public MyUser readUserById(int userId) throws Exception {
+		
+		if(userRepo.existsById(userId)) {
+			MyUser user = userRepo.findByIdUser(userId);
+			return user;
+		}
+		
+		throw new Exception("User doesn't exist");
+	}
 
 }

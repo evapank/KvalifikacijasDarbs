@@ -9,4 +9,6 @@ public interface IMyUserRepo extends CrudRepository<MyUser, Integer>{
 
 	boolean existsByEmail(String email);
 
+	MyUser findByIdUser(int userId);
+
 }
