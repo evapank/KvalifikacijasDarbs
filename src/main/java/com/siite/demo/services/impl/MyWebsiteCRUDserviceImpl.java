@@ -28,7 +28,7 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 	@Override
 	public boolean deleteWebsiteById(int websiteId) {
 		if(websiteRepo.existsById(websiteId)) {
-			MyWebsite result = websiteRepo.findById(websiteId).get();
+			MyWebsite result = websiteRepo.findByIdWeb(websiteId);
 			websiteRepo.delete(result);
 			return true;
 		}
@@ -42,7 +42,7 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 		
 		if(websiteRepo.existsById(websiteId)) {
 			
-			result = websiteRepo.findById(websiteId).get();
+			result = websiteRepo.findByIdWeb(websiteId);
 			
 			result.setTitle(website.getTitle());
 			result.setHeading(website.getHeading());
