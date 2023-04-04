@@ -54,5 +54,12 @@ public class MyUser {
 	@Column(name = "Websites")
 	@OneToMany(mappedBy = "owner")
 	private Collection<MyWebsite> websites;
+	
+	public MyUser(String username, String email, String password, boolean isAdmin) {
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.isAdmin = isAdmin;
+	}
 
 }

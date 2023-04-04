@@ -35,11 +35,30 @@ public class MyUserCRUDserviceImpl implements IMyUserCRUDservice {
 		if (userRepo.existsById(userId)) {
 			MyUser user = userRepo.findById(userId).get();
 			ArrayList<MyWebsite> userWebsites = websiteRepo.findByOwnerIdUser(userId);
+			
 			for (MyWebsite website : userWebsites) {
 				website.deleteOwner();
 				websiteRepo.delete(website);
 			}
+			
 			userRepo.deleteById(userId);
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean updateUserById(int userId, MyUser user) {
+		
+		MyUser result = new MyUser();
+		
+		if(userRepo.existsById(userId)) {
+			result = userRepo.findById(userId).get();
+			result.setUsername(user.getUsername());
+			result.setEmail(user.getEmail());
+			result.setPassword(user.getPassword());
+			result.setAdmin(user.isAdmin());
+			userRepo.save(result);
 			return true;
 		}
 		return false;

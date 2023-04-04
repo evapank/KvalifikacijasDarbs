@@ -8,4 +8,6 @@ public interface IMyUserCRUDservice {
 
 	boolean deleteUserById(int userId);
 
+	boolean updateUserById(int userId, MyUser user);
+
 }
