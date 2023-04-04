@@ -33,7 +33,6 @@ public class MyUserCRUDserviceImpl implements IMyUserCRUDservice {
 	@Override
 	public boolean deleteUserById(int userId) {
 		if (userRepo.existsById(userId)) {
-			MyUser user = userRepo.findById(userId).get();
 			ArrayList<MyWebsite> userWebsites = websiteRepo.findByOwnerIdUser(userId);
 			
 			for (MyWebsite website : userWebsites) {
@@ -53,12 +52,16 @@ public class MyUserCRUDserviceImpl implements IMyUserCRUDservice {
 		MyUser result = new MyUser();
 		
 		if(userRepo.existsById(userId)) {
-			result = userRepo.findById(userId).get();
+			
+			result = userRepo.findByIdUser(userId);
+			
 			result.setUsername(user.getUsername());
 			result.setEmail(user.getEmail());
 			result.setPassword(user.getPassword());
 			result.setAdmin(user.isAdmin());
+			
 			userRepo.save(result);
+			
 			return true;
 		}
 		return false;

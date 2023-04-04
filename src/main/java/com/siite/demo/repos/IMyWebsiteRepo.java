@@ -10,4 +10,6 @@ public interface IMyWebsiteRepo extends CrudRepository<MyWebsite, Integer>{
 
 	ArrayList<MyWebsite> findByOwnerIdUser(int userId);
 
+	MyWebsite findByIdWeb(int websiteId);
+
 }
