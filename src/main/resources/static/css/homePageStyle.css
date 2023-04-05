@@ -1,0 +1,81 @@
+html, body{
+	padding: 0;
+  	margin: 0;
+}
+
+body{
+	background: center center/cover no-repeat;
+	height: 100%;
+	width: 100%;
+	background-image: url("../images/website/loginpage.png");
+}
+
+.homepage-title {
+	display: flex;
+	flex-direction: column;
+    width: 100%;
+    height: 225px;
+    background: #8171C9;
+}
+
+.homepage-title h1 {
+    text-align: center;
+    font-family: 'Sora',sans-serif;
+    font-size: 100px;
+    color: black;
+    text-shadow: -2px 4px #28B1AF;
+    letter-spacing: 2px;
+}
+
+.login-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-wrap: wrap;
+	row-gap: 30px;
+	max-width:500px;
+	padding-top: 30px;
+	margin: auto;
+	font-family: 'Sora',sans-serif;
+	color: black;
+	font-size: 20px;
+}
+
+.login-form {
+	width: 100%;
+}
+
+.login-form input[type=submit]{
+	background: #28B1AF;
+	border: 3px solid #000000;
+	border-radius: 6px;
+	width: 100%;
+	height: 55px;
+	margin-top: 10px;
+	margin-left: 5px;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.login-form input[type=submit]:hover{
+	background: #000000;
+	border: 5px solid #28B1AF;
+	color: #28B1AF;
+	transition: 1s ease-out 300ms;
+}
+
+.form-control {
+	background: #F2F2F2;
+	border: 1px solid #28B1AF;
+	width: 100%;
+	height: 55px;
+	margin: 0px 5px 0px 5px;
+}
+
+.form-label{
+	text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+

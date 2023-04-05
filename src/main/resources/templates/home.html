@@ -4,7 +4,10 @@
 	<head>
 		<title>site</title>
 		<meta charset="UTF-8" />
-		<link href="../css/style.css" rel="stylesheet" th:href="@{/css/style.css}"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+		<link href="css/homePageStyle.css" rel="stylesheet"/>
   </head>
 	</head>
 
@@ -12,14 +15,15 @@
 						<div class="homepage-title">
 						<h1>Welcome!</h1>
 						</div>
-				    	<form name='loginForm' action="login" method='POST'>
+						<div class="login-container">
+				    	<form class="login-form" name='loginForm' action="login" method='POST'>
 							<div>
 							  <label class="form-label">Username</label>
-							  <input type="text" name='username' value='' class="form-control" placeholder="Username">
+							  <input type="text" name='username' class="form-control" placeholder="">
 							</div>
 							<div>
 							  <label class="form-label">Password</label>
-							  <input type="password" name='password' class="form-control" placeholder="Password">
+							  <input type="password" name='password' class="form-control" placeholder="">
 							</div>
 							<div>
 							  <td><input name="login" type="submit" value="Log in" /></td>
@@ -28,5 +32,6 @@
 							<td><input name="register" type="submit" value="Register" /></td>
 							</div>
 				    	</form>
+						</div>
 	</body>
 </html>
