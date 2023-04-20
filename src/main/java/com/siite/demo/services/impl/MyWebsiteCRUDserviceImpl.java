@@ -1,5 +1,8 @@
 package com.siite.demo.services.impl;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.siite.demo.models.MyWebsite;
@@ -66,6 +69,15 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 		}
 		
 		throw new Exception("Website doesn't exist");
+	}
+	
+	@Override
+	public ArrayList<MyWebsite> getUserWebsitesbyUserId(int userId){
+		ArrayList<MyWebsite> userWebsites = new ArrayList<>();
+		if (userRepo.existsById(userId)) {
+			userWebsites =  websiteRepo.findByOwnerIdUser(userId);
+		}
+		return userWebsites;
 	}
 	
 	

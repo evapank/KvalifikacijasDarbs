@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>profile</title>
+		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+		<link href="css/pageStyle.css" rel="stylesheet"/>
+  </head>
+	</head>
+
+	<body>
+						<div class="user-page-title">
+							<h1>Profile</h1>
+						</div>
+						<div class="user-profile">
+							<div class="user-info">
+								<h3 th:text="${user.getUsername}">#</h3>	
+								<h3 th:text="${user.getEmail}">#</h3>	
+								<a class="edit-button"th:href="@{/user/edit/{id}(id=${user.getIdUser})}" role="button">Edit</a>						
+							</div>
+							<div class="website-list" th:each="website: ${websites}">
+								<h2 th:text="${website.getTitle}">#</h2>
+								<a class="edit-button-mini" th:href="@{/user/website/edit/{id}(id=${website.getIdWeb})}" role="button">Edit</a>
+								<a class="delete-button-mini" th:href="@{/user/website/delete/{id}(id=${website.getIdWeb})}" role="button">Delete</a>
+							</div>
+						</div>
+						
+	</body>
+</html>

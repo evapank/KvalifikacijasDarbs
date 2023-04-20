@@ -1,5 +1,7 @@
 package com.siite.demo.services;
 
+import java.util.Collection;
+
 import com.siite.demo.models.MyWebsite;
 
 public interface IMyWebsiteCRUDservice {
@@ -11,5 +13,7 @@ public interface IMyWebsiteCRUDservice {
 	public boolean updateWebsiteById(int websiteId, MyWebsite website);
 	
 	public MyWebsite readWebsiteById(int websiteId) throws Exception;
+
+	Collection<MyWebsite> getUserWebsitesbyUserId(int userId);
 
 }
