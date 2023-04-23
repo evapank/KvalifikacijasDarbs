@@ -20,5 +20,7 @@ public class EditedWebsiteController {
 		model.addAttribute("website", websiteService.deleteWebsiteById(id));
 		return "redirect:/user/{userId}";
 	}
+	
+	
 
 }
