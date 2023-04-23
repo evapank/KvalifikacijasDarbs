@@ -23,21 +23,22 @@ public class AuthorisationController {
 
 	@GetMapping("/register")
 	public String getRegister(WebRequest request, Model model) {
+		
 		MyUser user = new MyUser();
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 	    user.setPassword(encodedPassword);
 		model.addAttribute("user", user);
+		
 		return "registrationPage";
 	}
 
-	@GetMapping("/register")
-	public String registerUserAccount(@Valid MyUser user, BindingResult result) {
+	@PostMapping("/register")
+	public String postRegister(@Valid MyUser user, BindingResult result) {
+		
 		if (result.hasErrors()) {
-
 			return "registrationPage";
 		} else {
-
 			userService.insertNewUser(user);
 			return "profilePage";
 		}
@@ -48,7 +49,7 @@ public class AuthorisationController {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 	    user.setPassword(encodedPassword);
-		return null;
+		return "redirect:/user";
 
 	}
 }

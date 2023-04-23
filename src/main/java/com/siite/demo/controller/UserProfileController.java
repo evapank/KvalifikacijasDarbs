@@ -7,12 +7,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.siite.demo.models.MyUser;
 import com.siite.demo.services.IMyUserCRUDservice;
 import com.siite.demo.services.IMyWebsiteCRUDservice;
 
 @Controller
+@RequestMapping("/user")
 public class UserProfileController {
 	
 	@Autowired
@@ -21,7 +23,12 @@ public class UserProfileController {
 	@Autowired
 	private IMyWebsiteCRUDservice websiteService;
 	
-	@GetMapping("/user/{id}")
+	@GetMapping("/**")
+	public String getDefaultUser() {
+		return "redirect:/{id}";
+	}
+	
+	@GetMapping("/{id}")
 	public String getUserWebsites(Model model, MyUser user, @PathVariable(name = "id") int id) {
 		try {
 			model.addAttribute("user", userService.readUserById(id));
@@ -32,7 +39,7 @@ public class UserProfileController {
 		return "userprofile/user-profile";
 	}
 	
-	@GetMapping("/user/{id}/edit")
+	@GetMapping("/{id}/edit")
 	public String getEditUser(Model model, @PathVariable(name = "id") int id) throws Exception {
 		
 		try {
@@ -44,7 +51,7 @@ public class UserProfileController {
 	
 	}
 	
-	@PostMapping("/user/{id}/edit")
+	@PostMapping("/{id}/edit")
 	public String postEditUser(@PathVariable(name = "id") int id, MyUser user, BindingResult result) throws Exception {
 		
 	
