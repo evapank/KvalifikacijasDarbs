@@ -68,6 +68,16 @@ public class EditedWebsiteController {
 		return "redirect:/user/{userId}";
 	}
 	
+	@GetMapping("/website/{websiteId}/publish")
+	public String getPublishWebsite(Model model, @PathVariable(name = "websiteId") int websiteId) throws Exception {
+		try {
+			model.addAttribute("website", websiteService.readWebsiteById(websiteId));
+			return "website/website-published";
+		} catch (Exception e) {
+			throw new Exception("can't publish website");
+		}
+	}
+	
 	
 
 }

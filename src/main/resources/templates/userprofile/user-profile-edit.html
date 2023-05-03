@@ -28,6 +28,9 @@
 								<label>Password</label>
 								<input type="password" th:field="*{password}" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
 							</div>
+							<div>
+							<a class="submit-button" th:href="@{/user/{id}(id=${user.getIdUser})}" role="button">Submit</a>
+							</div>
 						</form>
 						
 						

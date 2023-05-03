@@ -30,17 +30,17 @@ public class AuthorisationController {
 	    user.setPassword(encodedPassword);
 		model.addAttribute("user", user);
 		
-		return "registrationPage";
+		return "registration";
 	}
 
 	@PostMapping("/register")
 	public String postRegister(@Valid MyUser user, BindingResult result) {
 		
 		if (result.hasErrors()) {
-			return "registrationPage";
+			return "registration";
 		} else {
 			userService.insertNewUser(user);
-			return "profilePage";
+			return "userprofile/user-profile";
 		}
 	}
 
@@ -49,7 +49,9 @@ public class AuthorisationController {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 	    user.setPassword(encodedPassword);
-		return "redirect:/user";
+	    System.out.println("lietotāja profils");
+	    System.out.println(user);
+		return "userprofile/user-profile";
 
 	}
 }

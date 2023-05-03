@@ -7,7 +7,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
-		<link href="css/homePageStyle.css" rel="stylesheet"/>
+		<link href="css/pageStyle.css" rel="stylesheet"/>
   </head>
 	</head>
 
@@ -30,7 +30,7 @@
 							  <input type="password" name='password' class="form-control" placeholder="Enter password...">
 							</div>
 							<div>
-							<td><input name="register" type="submit" value="Register"/></td>
+							<a class="submit-button" th:href="@{/user/{id}(id=${user.getIdUser})}" role="button">Submit</a>
 							</div>
 				    	</form>
 						</div>

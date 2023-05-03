@@ -23,8 +23,8 @@
 							</div>
 							<div class="website-list" th:each="website: ${websites}">
 								<h2 th:text="${website.getTitle}">#</h2>
-								<a class="edit-button-mini" th:href="@{/user/website/edit/{id}(id=${website.getIdWeb})}" role="button">Edit</a>
-								<a class="delete-button-mini" th:href="@{/user/website/delete/{id}(id=${website.getIdWeb})}" role="button">Delete</a>
+								<a class="edit-button-mini" th:href="@{/user/{idU}(idU=${user.getIdUser})/website/edit/{idW}(idW=${website.getIdWeb})}" role="button">Edit</a>
+								<a class="delete-button-mini" th:href="@{/user/{idU}(idU=${user.getIdUser})/website/delete/{id}(id=${website.getIdWeb})}" role="button">Delete</a>
 							</div>
 						</div>
 						

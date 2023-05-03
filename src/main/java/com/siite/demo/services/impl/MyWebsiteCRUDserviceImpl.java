@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.siite.demo.models.MyWebsite;
 import com.siite.demo.repos.IMyUserRepo;
 import com.siite.demo.repos.IMyWebsiteRepo;
 import com.siite.demo.services.IMyWebsiteCRUDservice;
 
+@Service
 public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 	
 	@Autowired

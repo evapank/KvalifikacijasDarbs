@@ -31,6 +31,8 @@ public class UserProfileController {
 	@GetMapping("/{id}")
 	public String getUserWebsites(Model model, MyUser user, @PathVariable(name = "id") int id) {
 		try {
+			System.out.println("Printing id: ");
+			System.out.println(id);
 			model.addAttribute("user", userService.readUserById(id));
 			model.addAttribute("website", websiteService.getUserWebsitesbyUserId(id));
 		} catch (Exception e) {
