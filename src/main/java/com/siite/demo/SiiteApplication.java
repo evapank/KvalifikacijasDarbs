@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
+import com.siite.demo.enums.RolesEnum;
 import com.siite.demo.enums.TemplateEnum;
 import com.siite.demo.models.MyUser;
 import com.siite.demo.models.MyWebsite;
@@ -27,10 +28,10 @@ public class SiiteApplication {
 			@Override
 			public void run(String... args) throws Exception {
 				
-				MyUser user1 = new MyUser("admin", "email@email.com", "admin123", true);
+				MyUser user1 = new MyUser("admin", "email@email.com", "admin123", RolesEnum.admin);
 				userRepo.save(user1);
 				
-				MyWebsite web1 = new MyWebsite("title","heading", "paragraph", TemplateEnum.Green, user1);
+				MyWebsite web1 = new MyWebsite("title","heading", "paragraph", TemplateEnum.Green, false, user1);
 				websiteRepo.save(web1);
 				
 			}

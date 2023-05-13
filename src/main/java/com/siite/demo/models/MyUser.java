@@ -2,6 +2,8 @@ package com.siite.demo.models;
 
 import java.util.Collection;
 
+import com.siite.demo.enums.RolesEnum;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -47,19 +49,19 @@ public class MyUser {
 	@Pattern(regexp = "[a-zA-Z0-9\\S]+")
 	private String password;
 	
-	@Column(name = "IsAdmin")
+	@Column(name = "Role")
 	@NotNull
-	private boolean isAdmin;
+	private RolesEnum role;
 	
 	@Column(name = "Websites")
 	@OneToMany(mappedBy = "owner")
 	private Collection<MyWebsite> websites;
 	
-	public MyUser(String username, String email, String password, boolean isAdmin) {
+	public MyUser(String username, String email, String password, RolesEnum role) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
-		this.isAdmin = isAdmin;
+		this.role = role;
 	}
 
 }

@@ -10,6 +10,7 @@ body{
 	background-image: url("../images/app/loginpage.png");
 }
 
+
 .homepage-title {
 	display: flex;
 	flex-direction: column;
@@ -77,5 +78,29 @@ body{
     font-size: 20px;
     font-weight: bold;
 }
+
+.user-page-title{
+	text-align: left;
+    font-family: 'Sora',sans-serif;
+    font-size: 50px;
+    color: black;
+    background: #8171C9;
+}
+
+.user-profile{
+	flex-direction: row;
+	background: #8171C9;
+}
+
+.user-info{
+	flex-direction: column;
+	background: #28B1AF;
+}
+
+.website-list{
+	flex-direction: column;
+}
+
+
 
 

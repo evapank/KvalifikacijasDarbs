@@ -40,15 +40,19 @@ public class MyWebsite {
 	@Column(name = "Template")
 	private TemplateEnum template;
 	
+	@Column(name = "isPublished")
+	private boolean isPublished;
+	
 	@ManyToOne
 	@JoinColumn(name = "IdUser")
 	private MyUser owner;
 	
-	public MyWebsite(String title, String heading, String paragraph, TemplateEnum template, MyUser owner) {
+	public MyWebsite(String title, String heading, String paragraph, TemplateEnum template, boolean isPublished, MyUser owner) {
 		this.title = title;
 		this.heading = heading;
 		this.paragraph = paragraph;
 		this.template = template;
+		this.isPublished = isPublished;
 		this.owner = owner;
 	}
 	

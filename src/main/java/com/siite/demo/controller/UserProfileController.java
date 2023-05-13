@@ -22,14 +22,10 @@ public class UserProfileController {
 	
 	@Autowired
 	private IMyWebsiteCRUDservice websiteService;
-	
-	@GetMapping("/**")
-	public String getDefaultUser() {
-		return "redirect:/{id}";
-	}
+
 	
 	@GetMapping("/{id}")
-	public String getUserWebsites(Model model, MyUser user, @PathVariable(name = "id") int id) {
+	public String getUserWebsites(Model model, @PathVariable(name = "id") int id) {
 		try {
 			System.out.println("Printing id: ");
 			System.out.println(id);

@@ -45,13 +45,13 @@ public class AuthorisationController {
 	}
 
 	@PostMapping("/home")
-	public String postLogin(@Valid MyUser user) {
+	public String getLogin(@Valid MyUser user) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 	    user.setPassword(encodedPassword);
 	    System.out.println("lietotāja profils");
 	    System.out.println(user);
-		return "userprofile/user-profile";
+		return "redirect:/user/{id}";
 
 	}
 }

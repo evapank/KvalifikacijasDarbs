@@ -15,18 +15,22 @@
 						<div class="user-page-title">
 							<h1>Profile</h1>
 						</div>
+						
+					<form action="#" th:action="@{/user/__${id}__}" th:object="${user}" method="get">
 						<div class="user-profile">
 							<div class="user-info">
 								<h3 th:text="${user.getUsername}">#</h3>	
 								<h3 th:text="${user.getEmail}">#</h3>	
-								<a class="edit-button"th:href="@{/user/edit/{id}(id=${user.getIdUser})}" role="button">Edit</a>						
+								<a class="edit-button"th:href="@{/user/{id}(id=${user.getIdUser})/edit/}" role="button">Edit</a>						
 							</div>
-							<div class="website-list" th:each="website: ${websites}">
+						
+							<div class="website-list" th:each="website: ${website}">
 								<h2 th:text="${website.getTitle}">#</h2>
 								<a class="edit-button-mini" th:href="@{/user/{idU}(idU=${user.getIdUser})/website/edit/{idW}(idW=${website.getIdWeb})}" role="button">Edit</a>
-								<a class="delete-button-mini" th:href="@{/user/{idU}(idU=${user.getIdUser})/website/delete/{id}(id=${website.getIdWeb})}" role="button">Delete</a>
+								<a class="delete-button-mini" th:href="@{/user/{idU}(idU=${user.getIdUser})/website/delete/{idW}(idW=${website.getIdWeb})}" role="button">Delete</a>
 							</div>
 						</div>
+					</form>
 						
 	</body>
 </html>
