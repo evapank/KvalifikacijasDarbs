@@ -14,7 +14,7 @@ import com.siite.demo.models.MyUser;
 import com.siite.demo.services.IMyUserCRUDservice;
 
 import jakarta.validation.Valid;
-
+/*
 @Controller
 public class AuthorisationController {
 
@@ -54,4 +54,5 @@ public class AuthorisationController {
 		return "redirect:/user/{id}";
 
 	}
-}
+	
+}*/

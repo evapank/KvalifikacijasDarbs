@@ -12,4 +12,5 @@ public interface IMyWebsiteRepo extends CrudRepository<MyWebsite, Integer>{
 
 	MyWebsite findByIdWeb(int websiteId);
 
+
 }

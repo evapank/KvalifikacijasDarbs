@@ -15,20 +15,20 @@ import com.siite.demo.services.IMyWebsiteCRUDservice;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/website")
 public class EditedWebsiteController {
 	
 	@Autowired
 	private IMyWebsiteCRUDservice websiteService;
 	
-	@GetMapping("/website/create")
+	@GetMapping("/create")
 	public String getCreateWebsite(Model model, MyWebsite website) {
 		
 		model.addAttribute("website", websiteService.insertNewWebsite(website));
 		return "website/website-create";
 	}
 	
-	@PostMapping("/website/create")
+	@PostMapping("/create")
 	public String postCreateWebsite(@Valid MyWebsite website, BindingResult result) {
 		
 		if(!result.hasErrors()) {
@@ -38,40 +38,39 @@ public class EditedWebsiteController {
 		}
 	}
 	
-	@GetMapping("/website/edit/{websiteId}")
-	public String getEditWebsite(Model model, MyWebsite website, @PathVariable(name = "websiteId") int websiteId) throws Exception {
+	@GetMapping("/edit/{id}")
+	public String getEditWebsite(Model model, MyWebsite website, @PathVariable(name = "id") int id) throws Exception {
 		
 		try {
-			model.addAttribute("website", websiteService.readWebsiteById(websiteId));
+			model.addAttribute("website", websiteService.readWebsiteById(id));
 			return "website/website-edit";
 		} catch (Exception e) {
 			throw new Exception("can't find website");
 		}
 	}
 	
-	@PostMapping("/website/edit/{websiteId}")
-	public String postEditWebsite(MyWebsite website, @PathVariable(name = "websiteId") int websiteId, BindingResult result) throws Exception {
+	@PostMapping("/edit/{id}")
+	public String postEditWebsite(MyWebsite website, @PathVariable(name = "id") int id, BindingResult result) throws Exception {
 		
 		if(!result.hasErrors()) {
-			if(!websiteService.updateWebsiteById(websiteId, website)) {
+			if(!websiteService.updateWebsiteById(id, website)) {
 				throw new Exception("can't update website");
 			}
 		}
 		return "website/website-edit";
 	}
 	
-	@GetMapping("/website/delete/{websiteId}")
-	public String getDeleteWebsite(Model model,@PathVariable(name = "userId") int userId,
-			@PathVariable(name = "websiteId") int websiteId) {
+	@GetMapping("/delete/{id}")
+	public String getDeleteWebsite(Model model, @PathVariable(name = "id") int id) {
 		
-		model.addAttribute("website", websiteService.deleteWebsiteById(websiteId));
-		return "redirect:/user/{userId}";
+		model.addAttribute("website", websiteService.deleteWebsiteById(id));
+		return "redirect:/user/" + websiteService.getOwnerIdByWebsiteId(id);
 	}
 	
-	@GetMapping("/website/{websiteId}/publish")
-	public String getPublishWebsite(Model model, @PathVariable(name = "websiteId") int websiteId) throws Exception {
+	@GetMapping("/{id}/publish")
+	public String getPublishWebsite(Model model, @PathVariable(name = "id") int id) throws Exception {
 		try {
-			model.addAttribute("website", websiteService.readWebsiteById(websiteId));
+			model.addAttribute("website", websiteService.readWebsiteById(id));
 			return "website/website-published";
 		} catch (Exception e) {
 			throw new Exception("can't publish website");

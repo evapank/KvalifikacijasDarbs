@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.siite.demo.models.MyUser;
 import com.siite.demo.models.MyWebsite;
 import com.siite.demo.repos.IMyUserRepo;
 import com.siite.demo.repos.IMyWebsiteRepo;
@@ -80,6 +81,13 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 			userWebsites =  websiteRepo.findByOwnerIdUser(userId);
 		}
 		return userWebsites;
+	}
+
+	@Override
+	public int getOwnerIdByWebsiteId(int websiteId) {
+		MyWebsite website = websiteRepo.findByIdWeb(websiteId);
+		MyUser owner = website.getOwner();
+		return owner.getIdUser();
 	}
 	
 	
