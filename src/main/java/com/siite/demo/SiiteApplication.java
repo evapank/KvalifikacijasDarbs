@@ -28,7 +28,7 @@ public class SiiteApplication {
 			@Override
 			public void run(String... args) throws Exception {
 				
-				MyUser user1 = new MyUser("admin", "email@email.com", "admin123", RolesEnum.admin);
+				MyUser user1 = new MyUser("admin", "email@email.com", "admin123", RolesEnum.ADMIN);
 				userRepo.save(user1);
 				
 				MyWebsite web1 = new MyWebsite("title","heading", "paragraph", TemplateEnum.Green, false, user1);
