@@ -12,10 +12,11 @@
 	</head>
 
 	<body>
+						<div th:replace="fragments/header :: header"></div>
 						<div class="user-page-title">
 							<h1>Edit profile</h1>
 						</div>
-						<form class="user-edit-page" action="#" th:action="@{/user/edit/__${id}__}" th:object="${user}" method="post">
+						<form class="user-edit-page" action="#" th:action="@{/user/__${id}__/edit}" th:object="${user}" method="post">
 							<div>
 								<label>Username</label>
 								<input type="text" th:field="*{username}" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">

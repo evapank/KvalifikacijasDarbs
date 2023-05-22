@@ -24,14 +24,13 @@ public class MyUserCRUDserviceImpl implements IMyUserCRUDservice, UserDetailsSer
 	@Autowired
 	private IMyWebsiteRepo websiteRepo;
 	
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
 
 	@Override
 	public boolean insertNewUser(MyUser user) {
 		if (userRepo.existsByEmail(user.getEmail())) {
 			return false;
 		} else {
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 			String encodedPassword = passwordEncoder.encode(user.getPassword());
 			user.setPassword(encodedPassword);
 			userRepo.save(user);
@@ -64,9 +63,12 @@ public class MyUserCRUDserviceImpl implements IMyUserCRUDservice, UserDetailsSer
 			
 			result = userRepo.findByIdUser(userId);
 			
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			String encodedPassword = passwordEncoder.encode(user.getPassword());
+			user.setPassword(encodedPassword);
+			
 			result.setUsername(user.getUsername());
 			result.setEmail(user.getEmail());
-			result.setPassword(user.getPassword());
 			result.setRole(user.getRole());
 			
 			userRepo.save(result);

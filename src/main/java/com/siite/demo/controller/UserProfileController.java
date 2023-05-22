@@ -22,6 +22,11 @@ public class UserProfileController {
 	
 	@Autowired
 	private IMyWebsiteCRUDservice websiteService;
+	
+	@GetMapping("/")
+	public String getUserProfile(Model model, @PathVariable(name = "id") int id) {
+		return "redirect:/" + id;
+	}
 
 	
 	@GetMapping("/{id}")
@@ -49,13 +54,13 @@ public class UserProfileController {
 	
 	}
 	
-	@PostMapping("/{id}/edit")
+	@PostMapping("{id}/edit")
 	public String postEditUser(@PathVariable(name = "id") int id, MyUser user, BindingResult result) throws Exception {
 		
 	
 		if(!result.hasErrors()) {
 			if(userService.updateUserById(id, user)) {
-				return "redirect:/user/{id}";
+				return "redirect:/user/" + id;
 			} else {
 				throw new Exception("can't update");
 			}

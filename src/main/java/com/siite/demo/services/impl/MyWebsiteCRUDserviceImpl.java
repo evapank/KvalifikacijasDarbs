@@ -89,6 +89,15 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 		MyUser owner = website.getOwner();
 		return owner.getIdUser();
 	}
+
+	@Override
+	public boolean publishWebsiteById(int websiteId) {
+		MyWebsite website = websiteRepo.findByIdWeb(websiteId);
+		if(websiteRepo.existsById(websiteId)) {
+			website.setPublished(true);
+		}
+		return false;
+	}
 	
 	
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>create</title>
+		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+		<link href="css/pageStyle.css" rel="stylesheet"/>
+  </head>
+
+	<body>
+						<form action="#" th:action="@{/website/edit/__${id}__}" th:object="${website}" method="post">
+							<div class="website-create-sidebar">
+								<div>
+									<label>Title</label>
+									<input type="text" th:field="*{title}" placeholder="title">
+									<div th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+								</div>
+								<div>
+									<label>Heading</label>
+									<input type="text" th:field="*{heading}" placeholder="heading">
+									<div th:if="${#fields.hasErrors('heading')}" th:errors="*{heading}"></div>
+								</div>
+								<div>
+									<label>Paragraph</label>
+									<textarea name="paragraph" maxlength="1000" rows="3" cols="50" th:field="*{paragraph}" placeholder="paragraph">
+									<div th:if="${#fields.hasErrors('paragraph')}" th:errors="*{paragraph}"></div>
+								</div>
+								<div>
+									<label>Template</label>
+									<select th:field="*{template}">
+			    						<option th:each="templateOption: ${T(com.siite.demo.enums.TemplateEnum).values()}" th:value="${templateOption}" th:text="${templateOption}" />
+									</select>
+								</div>
+							</div>
+						</form>
+	</body>
+</html>

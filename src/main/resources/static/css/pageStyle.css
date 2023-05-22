@@ -1,6 +1,7 @@
 html, body{
 	padding: 0;
   	margin: 0;
+  	font-family: 'Sora',sans-serif;
 }
 
 body{
@@ -10,6 +11,23 @@ body{
 	background-image: url("../images/app/loginpage.png");
 }
 
+.header{
+	 overflow: hidden;
+	 padding: 5px 10px;
+	 background: black;
+}
+
+.header a{
+	float: right;
+	text-align: center;
+	font-size: 15px;
+	color: #8171C9;
+}
+
+.header a:hover{
+	background-color: #8171C9;
+	color: black;
+}
 
 .homepage-title {
 	display: flex;
@@ -21,7 +39,6 @@ body{
 
 .homepage-title h1 {
     text-align: center;
-    font-family: 'Sora',sans-serif;
     font-size: 100px;
     color: black;
     text-shadow: -2px 4px #28B1AF;
@@ -37,7 +54,6 @@ body{
 	max-width:500px;
 	padding-top: 30px;
 	margin: auto;
-	font-family: 'Sora',sans-serif;
 	color: black;
 	font-size: 20px;
 }
@@ -81,8 +97,7 @@ body{
 
 .user-page-title{
 	text-align: left;
-    font-family: 'Sora',sans-serif;
-    font-size: 50px;
+    font-size: 40px;
     color: black;
     background: #8171C9;
 }
@@ -90,15 +105,19 @@ body{
 .user-profile{
 	flex-direction: row;
 	background: #8171C9;
+	width: 100%;
+	height:100%;
 }
 
 .user-info{
 	flex-direction: column;
 	background: #28B1AF;
+	width:30%!important;
 }
 
 .website-list{
 	flex-direction: column;
+	width:70%!important;
 }
 
 

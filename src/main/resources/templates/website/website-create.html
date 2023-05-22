@@ -7,12 +7,12 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
-		<link href="css/pageStyle.css" rel="stylesheet"/>
+		<link href="/css/pageStyle.css" rel="stylesheet"/>
   </head>
 	</head>
 
 	<body>
-						<form action="#" th:action="@{/user/__${userId}__/website/create}" th:object="${website}" method="post">
+						<form action="#" th:action="@{/website/create}" th:object="${website}" method="post">
 							<div class="website-create-sidebar">
 								<div>
 									<label>Title</label>

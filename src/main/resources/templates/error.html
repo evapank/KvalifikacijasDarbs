@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
+
+	<head>
+		<title>create</title>
 		<meta charset="UTF-8" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
-		<link href="/css/pageStyle.css" rel="stylesheet"/>
-</head>
+		<link href="css/pageStyle.css" rel="stylesheet"/>
+  </head>
+  
 	<body>
-		<div th:fragment="header" class="header">
-					<a th:href="@{/user/__${id}__}" th:object="${user}">Profile</a>
-					<a th:href="@{/website/create}">Add new website</a>
-		</div>
+				<h1>Something went wrong! </h1>
+				<h2>Our Engineers are on it</h2>
+				<a href="/">Go Home</a>
 	</body>
-
 </html>

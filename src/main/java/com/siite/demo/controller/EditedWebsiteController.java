@@ -25,16 +25,16 @@ public class EditedWebsiteController {
 	public String getCreateWebsite(Model model, MyWebsite website) {
 		
 		model.addAttribute("website", websiteService.insertNewWebsite(website));
-		return "website/website-create";
+		return "website/website-edit";
 	}
 	
 	@PostMapping("/create")
 	public String postCreateWebsite(@Valid MyWebsite website, BindingResult result) {
 		
 		if(!result.hasErrors()) {
-			return "website/website-create";
+			return "website/website-edit";
 		} else {
-			return "redirect:/{userId}/website/edit";
+			return "redirect:/website/edit/" + website.getIdWeb();
 		}
 	}
 	
