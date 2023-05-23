@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title th:text="${website.title}">title</title>
+		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Sacramento&display=swap" rel="stylesheet">
+		<link href="/css/lightLayout.css" rel="stylesheet"/>
+  </head>
+	</head>
+
+	<body>
+						<div class="heading">
+						<h1 th:text="${website.heading}">heading</h1>
+						</div>
+						
+						<div class="paragraph">
+				    	<p th:text="${website.paragraph}">paragraph</p>
+						</div>
+	</body>
+</html>

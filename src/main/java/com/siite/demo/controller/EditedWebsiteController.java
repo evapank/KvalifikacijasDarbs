@@ -22,19 +22,20 @@ public class EditedWebsiteController {
 	private IMyWebsiteCRUDservice websiteService;
 	
 	@GetMapping("/create")
-	public String getCreateWebsite(Model model, MyWebsite website) {
-		
-		model.addAttribute("website", websiteService.insertNewWebsite(website));
-		return "website/website-edit";
+	public String getCreateWebsite(MyWebsite website) {
+		return "website/website-create";
 	}
 	
 	@PostMapping("/create")
 	public String postCreateWebsite(@Valid MyWebsite website, BindingResult result) {
 		
-		if(!result.hasErrors()) {
-			return "website/website-edit";
+		if(result.hasErrors()) {
+			return "website/website-create";
 		} else {
-			return "redirect:/website/edit/" + website.getIdWeb();
+			websiteService.insertNewWebsite(website);
+			int websiteId = website.getIdWeb();
+			//int ownerId = websiteService.getOwnerIdByWebsiteId(websiteId);
+			return "website/website-create";
 		}
 	}
 	

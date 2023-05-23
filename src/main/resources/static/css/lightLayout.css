@@ -1,0 +1,19 @@
+html, body{
+	padding: 0;
+  	margin: 0;
+  	font-family: 'Amiri', serif;
+}
+
+body{
+	height: 100%;
+	width: 100%;
+}
+
+.heading {
+	background:  #FFA5AB;
+	color: #001524;
+	font-family: 'Sacramento', cursive;
+	text-align: left;
+	font-size: 30px;
+	
+}

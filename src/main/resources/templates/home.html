@@ -7,29 +7,30 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
-		<link href="src/main/resources/static/css/pageStyle.css" rel="stylesheet"/>
+		<link href="/css/pageStyle.css" rel="stylesheet"/>
   </head>
 	</head>
 
 	<body>
-						<div class="homepage-title">
+						<div class="loginpage-title">
 						<h1>Welcome!</h1>
 						</div>
-						<div class="login-container">
-				    	<form class="login-form" name='loginForm' action="/home" method='POST'>
+						<div class="registration-container">
+				    	<form class="login-form" name='loginForm' action="login" method='POST'>
 							<div>
 							  <label class="form-label">Username</label>
-							  <input type="text" name='username' class="form-control" placeholder="">
+							  <input type="text" name='username' class="form-control">
+							</div>
+							<div>
+							  <label class="form-label">E-mail</label>
+							  <input type="text" name='email' class="form-control">
 							</div>
 							<div>
 							  <label class="form-label">Password</label>
-							  <input type="password" name='password' class="form-control" placeholder="">
+							  <input type="password" name='password' class="form-control">
 							</div>
 							<div>
-							  <input name="login" type="submit" value="Log in" />
-							</div>
-							<div>
-							<input name="register" type="submit" value="Register" />
+							<a class="submit-button" th:href="@{/user/{id}(id=${user.getIdUser})}" role="button">Submit</a>
 							</div>
 				    	</form>
 						</div>
