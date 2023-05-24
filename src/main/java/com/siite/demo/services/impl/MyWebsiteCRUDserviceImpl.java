@@ -85,18 +85,35 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 
 	@Override
 	public int getOwnerIdByWebsiteId(int websiteId) {
+		
 		MyWebsite website = websiteRepo.findByIdWeb(websiteId);
 		MyUser owner = website.getOwner();
+		
 		return owner.getIdUser();
 	}
 
 	@Override
-	public boolean publishWebsiteById(int websiteId) {
-		MyWebsite website = websiteRepo.findByIdWeb(websiteId);
+	public boolean publishWebsiteById(int websiteId) throws Exception {
+		
 		if(websiteRepo.existsById(websiteId)) {
+			
+			MyWebsite website = websiteRepo.findByIdWeb(websiteId);
 			website.setPublished(true);
+			return true;
 		}
-		return false;
+		throw new Exception("can't find website");
+	}
+	
+	@Override
+	public boolean unpublishWebsiteById(int websiteId) throws Exception{
+		
+		if(websiteRepo.existsById(websiteId)) {
+			
+			MyWebsite website = websiteRepo.findByIdWeb(websiteId);
+			website.setPublished(false);
+			return false;
+		}
+		throw new Exception("can't find website");
 	}
 	
 	

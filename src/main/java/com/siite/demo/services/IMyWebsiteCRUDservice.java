@@ -18,6 +18,8 @@ public interface IMyWebsiteCRUDservice {
 	
 	public int getOwnerIdByWebsiteId(int websiteId);
 	
-	public boolean publishWebsiteById(int websiteId);
+	public boolean publishWebsiteById(int websiteId) throws Exception;
+
+	public boolean unpublishWebsiteById(int websiteId) throws Exception;
 
 }

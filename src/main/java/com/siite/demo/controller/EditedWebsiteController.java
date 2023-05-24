@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,20 +23,20 @@ public class EditedWebsiteController {
 	private IMyWebsiteCRUDservice websiteService;
 	
 	@GetMapping("/create")
-	public String getCreateWebsite(MyWebsite website) {
+	public String getCreateWebsite(Model model, MyWebsite website) {
+		model.addAttribute("website", new MyWebsite());
 		return "website/website-create";
 	}
 	
 	@PostMapping("/create")
-	public String postCreateWebsite(@Valid MyWebsite website, BindingResult result) {
+	public String postCreateWebsite(@Valid @ModelAttribute(value="website") MyWebsite website, BindingResult result) {
 		
 		if(result.hasErrors()) {
 			return "website/website-create";
 		} else {
 			websiteService.insertNewWebsite(website);
 			int websiteId = website.getIdWeb();
-			//int ownerId = websiteService.getOwnerIdByWebsiteId(websiteId);
-			return "website/website-create";
+			return "redirect:/edit/" + websiteId;
 		}
 	}
 	
@@ -64,20 +65,30 @@ public class EditedWebsiteController {
 	@GetMapping("/delete/{id}")
 	public String getDeleteWebsite(Model model, @PathVariable(name = "id") int id) {
 		
+		int ownerId = websiteService.getOwnerIdByWebsiteId(id);
+		
 		model.addAttribute("website", websiteService.deleteWebsiteById(id));
-		return "redirect:/user/" + websiteService.getOwnerIdByWebsiteId(id);
+		return "redirect:/user/" + ownerId;
 	}
 	
-	@GetMapping("/{id}/publish")
-	public String getPublishWebsite(Model model, @PathVariable(name = "id") int id) throws Exception {
-		try {
-			model.addAttribute("website", websiteService.readWebsiteById(id));
-			return "website/website-published";
-		} catch (Exception e) {
-			throw new Exception("can't publish website");
+	@GetMapping("/publish/{id}")
+	public String getPublishWebsite(@PathVariable(name = "id") int id) throws Exception {
+	
+			if(websiteService.publishWebsiteById(id)) {
+				return "redirect:/edit/" + id;
+			} else {
+				throw new Exception("can't publish website");
+			}
+	}
+	
+	@GetMapping("/unpublish/{id}")
+	public String getUnpublishWebsite( @PathVariable(name = "id") int id) throws Exception{
+		
+		if(websiteService.unpublishWebsiteById(id)) {
+			return "redirect:/edit/" + id;
+		} else {
+			throw new Exception("can't unpublish website");
 		}
 	}
 	
-	
-
 }

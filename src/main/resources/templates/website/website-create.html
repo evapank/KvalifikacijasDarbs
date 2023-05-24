@@ -32,6 +32,10 @@
 			    						<option th:each="templateOption: ${T(com.siite.demo.enums.TemplateEnum).values()}" th:value="${templateOption}" th:text="${templateOption}" />
 									</select>
 								</div>
+								
+								<a class="submit-button" th:href="@{/website/save}" role="button">Save</a >
+								<a class="submit-button" th:href="@{/website/published/{id}(id=${website.getIdWeb})}" role="button">Publish</a >
+								<a class="submit-button" th:href="@{/website/unpublished}" role="button">Unpublish</a>
 							</div>
 						</form>
 	</body>

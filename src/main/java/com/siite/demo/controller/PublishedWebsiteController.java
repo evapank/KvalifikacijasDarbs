@@ -17,11 +17,13 @@ public class PublishedWebsiteController {
 	private IMyWebsiteCRUDservice websiteService;
 	
 	@GetMapping("/{id}")
-	public String getPublishedWebsite(Model model, @PathVariable(name = "id") int id) {
+	public String getPublishedWebsite(Model model, @PathVariable(name = "id") int id) throws Exception {
 		if(websiteService.publishWebsiteById(id)) {
+			
+			model.addAttribute("website", websiteService.readWebsiteById(id));
 			return "website/website-published";
 		}
-		return "error";
+		throw new Exception("can't find website");
 	}
 
 }
