@@ -4,6 +4,10 @@ html, body{
   	font-family: 'Sora',sans-serif;
 }
 
+*{
+	box-sizing: border-box;
+}
+
 body{
 	background: center center/cover no-repeat;
 	height: 100%;
@@ -35,6 +39,7 @@ body{
    left: 0;
    bottom: 0;
    width: 100%;
+   padding: 10px;
    background-color: #8171C9;
    color: black;
    text-align: left;
@@ -111,26 +116,96 @@ body{
     font-size: 40px;
     color: black;
     background: #8171C9;
+    width: 100%;
+    margin: 0;
+    display: flex;
 }
 
 .user-profile{
+	display: flex;
 	flex-direction: row;
-	background: #8171C9;
+	flex-wrap: nowrap;
+	background-color: #8171C9;
 	width: 100%;
 	height:100%;
+	margin: 0;
+	align-items: stretch;
+}
+
+.edit-button{
+	padding: 10px;
+	margin: 5px;
+	background-color: black;
+	border: 2px solid #28B1AF;
+	color: #28B1AF;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 10px;
 }
 
 .user-info{
+	display: flex;
 	flex-direction: column;
-	background: #28B1AF;
+	background-color: #28B1AF;
+	border: 2px solid black;
 	width:30%!important;
+	height: 100%;
+	border-radius: 15px;
+	padding: 15px;
+	margin: 10px;
 }
 
 .website-list{
+	display: flex;
 	flex-direction: column;
 	width:70%!important;
+	height: 100%;
+	padding: 15px;
 }
 
+.website-list h2 {
+	padding: 10px;
+}
+
+.website-list-item{
+	border: 2px solid black;
+	border-radius: 15px;
+	margin-bottom: 10px;
+}
+
+.buttons-mini{
+	text-align: right;
+	background-color: rgba(0,0,0,0.6);
+	padding: 15px;
+	border-radius: 0px 0px 13px 13px;
+}
+
+.edit-button-mini, .delete-button-mini{
+	text-align: center;
+  	text-decoration: none;
+	border-radius: 10px;
+	font-size: 15px;
+	padding: 10px;
+}
+
+.edit-button-mini{
+	background: #28B1AF;
+	border: 1px solid black;
+	color: black;
+}
+
+.delete-button-mini {
+	background: black;
+	border: 1px solid white;
+	color: white;
+}
+
+
+.error-page {
+	background: #28B1AF;
+	color: black;
+	
+}
 
 
 

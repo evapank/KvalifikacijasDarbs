@@ -27,9 +27,13 @@
 							</div>
 						
 							<div class="website-list" th:each="website: ${website}">
-								<h2 th:text="${website.getTitle}">#</h2>
-								<a class="edit-button-mini" th:href="@{/website/edit/{idW}(idW=${website.getIdWeb})}" role="button">Edit</a>
-								<a class="delete-button-mini" th:href="@{/website/delete/{idW}(idW=${website.getIdWeb})}" role="button">Delete</a>
+								<div class="website-list-item">
+									<h2 th:text="${website.getTitle}">#</h2>
+									<div class="buttons-mini">
+										<a class="edit-button-mini" th:href="@{/website/edit/{idW}(idW=${website.getIdWeb})}" role="button">Edit</a>
+										<a class="delete-button-mini" th:href="@{/website/delete/{idW}(idW=${website.getIdWeb})}" role="button">Delete</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</form>
