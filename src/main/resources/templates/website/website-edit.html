@@ -7,7 +7,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
-		<link href="css/pageStyle.css" rel="stylesheet"/>
+		<link href="/css/pageStyle.css" rel="stylesheet"/>
   </head>
 
 	<body>
@@ -15,17 +15,17 @@
 							<div class="website-create-sidebar">
 								<div>
 									<label>Title</label>
-									<input type="text" th:field="*{title}" name="title" placeholder="title">
+									<input type="text" th:field="*{title}" name="title" placeholder="${title}">
 									<div th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
 								</div>
 								<div>
 									<label>Heading</label>
-									<input type="text" th:field="*{heading}" name="heading" placeholder="heading">
+									<input type="text" th:field="*{heading}" name="heading" placeholder="${heading}">
 									<div th:if="${#fields.hasErrors('heading')}" th:errors="*{heading}"></div>
 								</div>
 								<div>
 									<label>Paragraph</label>
-									<textarea name="paragraph" maxlength="1000" rows="3" cols="50" th:field="*{paragraph}" placeholder="paragraph">
+									<textarea name="paragraph" maxlength="1000" rows="3" cols="50" th:field="*{paragraph}" placeholder="${paragraph}">
 									<div th:if="${#fields.hasErrors('paragraph')}" th:errors="*{paragraph}"></div>
 								</div>
 								<div>
@@ -34,6 +34,11 @@
 			    						<option th:each="templateOption: ${T(com.siite.demo.enums.TemplateEnum).values()}" th:value="${templateOption}" th:text="${templateOption}" />
 									</select>
 								</div>
+								
+								<a class="submit-button" th:href="@{/website/save}" role="button">Save</a >
+								<a class="submit-button" th:href="@{/website/published/{id}(id=${website.getIdWeb})}" role="button">Publish</a >
+								<a class="submit-button" th:href="@{/website/unpublished}" role="button">Unpublish</a>
+								
 							</div>
 						</form>
 	</body>

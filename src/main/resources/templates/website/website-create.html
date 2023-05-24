@@ -16,15 +16,15 @@
 							<div class="website-create-sidebar">
 								<div>
 									<label>Title</label>
-									<input type="text" th:field="*{title}" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+									<input type="text" th:field="*{title}" th:if="${#fields.hasErrors('title')}" th:errors="*{title}" placeholder="title">
 								</div>
 								<div>
 									<label>Heading</label>
-									<input type="text" th:field="*{heading}" th:if="${#fields.hasErrors('heading')}" th:errors="*{heading}">
+									<input type="text" th:field="*{heading}" th:if="${#fields.hasErrors('heading')}" th:errors="*{heading}" placeholder="heading">
 								</div>
 								<div>
 									<label>Paragraph</label>
-									<textarea name="paragraph" maxlength="1000" rows="3" cols="50" th:field="*{paragraph}" th:if="${#fields.hasErrors('paragraph')}" th:errors="*{paragraph}">
+									<textarea name="paragraph" maxlength="1000" rows="3" cols="50" th:field="*{paragraph}" th:if="${#fields.hasErrors('paragraph')}" th:errors="*{paragraph}" placeholder="$paragraph">
 								</div>
 								<div>
 									<label>Template</label>

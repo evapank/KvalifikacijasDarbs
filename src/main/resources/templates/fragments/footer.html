@@ -8,9 +8,17 @@
 		<link href="/css/pageStyle.css" rel="stylesheet"/>
 </head>
 	<body>
-		<div th:fragment="header" class="header">
-					<a th:href="@{/website/create}">Add new website</a>
-		</div>
+		<footer th:fragment="footer-website" class="footer-website">
+					<div>
+						Website, 2023
+					</div>
+		</footer>
+		
+		<footer th:fragment="footer-user-website" class="footer-user-website">
+					<div>
+						Made by <p th:text={user.getUsername()}>#</p>
+					</div>
+		</footer>
 	</body>
 
 </html>
