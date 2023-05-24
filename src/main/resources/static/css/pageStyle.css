@@ -8,13 +8,6 @@ html, body{
 	box-sizing: border-box;
 }
 
-body{
-	background: center center/cover no-repeat;
-	height: 100%;
-	width: 100%;
-	background-image: url("../images/app/loginpage.png");
-}
-
 .header{
 	 overflow: hidden;
 	 padding: 5px 10px;
@@ -27,11 +20,13 @@ body{
 	font-size: 15px;
 	padding: 10px;
 	color: #8171C9;
+	text-decoration: none;
 }
 
 .header a:hover{
 	background-color: #8171C9;
 	color: black;
+	border-radius: 10px;
 }
 
 .footer-website {
@@ -200,6 +195,55 @@ body{
 	color: white;
 }
 
+.website-create-sidebar {
+  	margin: 0;
+  	padding: 0;
+  	width: 400px;
+  	background-color: rgba(0,0,0, 0.8);
+  	position: fixed;
+  	height: 100%;
+  	overflow: auto;
+}
+
+
+.website-create-sidebar-item {
+	padding:15px 15px 5px 15px;
+	font-size: 15px;
+	display: flex;
+	text-align: left;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.website-create-sidebar-item label{
+	color: white;
+	display: block;
+}
+
+.website-create-sidebar-item input, textarea, select{
+	padding: 5px;
+	font-size: 18px;
+}
+
+.save-button, .publish-button, .unpublish-button {
+	padding: 10px;
+	margin: 15px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 10px;
+}
+
+.save-button {
+	background-color: #28B1AF;
+	border: 2px solid black;
+	color: black;
+}
+
+.publish-button, .unpublish-button {
+	background-color: black;
+	border: 2px solid #28B1AF;
+	color: #28B1AF;
+}
 
 .error-page {
 	background: #28B1AF;

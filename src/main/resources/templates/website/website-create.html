@@ -8,34 +8,44 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
 		<link href="/css/pageStyle.css" rel="stylesheet"/>
+		<script type="text/javascript" th:src="@{/js/actions.js}"></script>
   </head>
 	</head>
 
 	<body>
 						<form action="#" th:action="@{/website/create}" th:object="${website}" method="post">
 							<div class="website-create-sidebar">
-								<div>
+							
+							<h1>Enter the following:</h1>
+							
+								<div class="website-create-sidebar-item">
 									<label>Title</label>
-									<input type="text" th:field="*{title}" th:if="${#fields.hasErrors('title')}" th:errors="*{title}" placeholder="title">
+									<input type="text" th:field="*{title}" name="title" placeholder="title">
+									<div th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
 								</div>
-								<div>
+								
+								<div class="website-create-sidebar-item">
 									<label>Heading</label>
-									<input type="text" th:field="*{heading}" th:if="${#fields.hasErrors('heading')}" th:errors="*{heading}" placeholder="heading">
+									<input type="text" th:field="*{heading}" name="heading" placeholder="heading">
+									<div th:if="${#fields.hasErrors('heading')}" th:errors="*{heading}"></div>
 								</div>
-								<div>
+								
+								<div class="website-create-sidebar-item">
 									<label>Paragraph</label>
-									<textarea name="paragraph" maxlength="1000" rows="3" cols="50" th:field="*{paragraph}" th:if="${#fields.hasErrors('paragraph')}" th:errors="*{paragraph}" placeholder="$paragraph">
+									<textarea name="paragraph" maxlength="1000" rows="5" cols="50" th:field="*{paragraph}" placeholder="paragraph">
+									<div th:if="${#fields.hasErrors('paragraph')}" th:errors="*{paragraph}"></div>
 								</div>
-								<div>
+								
+								<div class="website-create-sidebar-item">
 									<label>Template</label>
 									<select th:field="*{template}">
 			    						<option th:each="templateOption: ${T(com.siite.demo.enums.TemplateEnum).values()}" th:value="${templateOption}" th:text="${templateOption}" />
 									</select>
 								</div>
 								
-								<a class="submit-button" th:href="@{/website/save}" role="button">Save</a >
-								<a class="submit-button" th:href="@{/website/published/{id}(id=${website.getIdWeb})}" role="button">Publish</a >
-								<a class="submit-button" th:href="@{/website/unpublished}" role="button">Unpublish</a>
+								<a class="save-button" th:href="@{/website/save}" role="button">Save</a >
+								<a id="publishButton" class="publish-button" th:href="@{/website/published/{id}(id=${website.getIdWeb})}" role="button">Publish</a >
+								<a id="unpublishButton" class="unpublish-button" th:href="@{/website/unpublished}" role="button">Unpublish</a>
 							</div>
 						</form>
 	</body>

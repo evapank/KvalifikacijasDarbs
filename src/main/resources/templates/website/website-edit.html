@@ -25,7 +25,7 @@
 								</div>
 								<div>
 									<label>Paragraph</label>
-									<textarea name="paragraph" maxlength="1000" rows="3" cols="50" th:field="*{paragraph}" placeholder="${paragraph}">
+									<textarea name="paragraph" maxlength="1000" rows="5" cols="50" th:field="*{paragraph}" placeholder="${paragraph}">
 									<div th:if="${#fields.hasErrors('paragraph')}" th:errors="*{paragraph}"></div>
 								</div>
 								<div>
@@ -35,10 +35,11 @@
 									</select>
 								</div>
 								
-								<a class="submit-button" th:href="@{/website/save}" role="button">Save</a >
-								<a class="submit-button" th:href="@{/website/published/{id}(id=${website.getIdWeb})}" role="button">Publish</a >
-								<a class="submit-button" th:href="@{/website/unpublished}" role="button">Unpublish</a>
-								
+								<div>>
+									<a class="save-button" th:href="@{/website/save}" role="button">Save</a >
+									<a class="publish-button" th:href="@{/website/published/{id}(id=${website.getIdWeb})}" role="button">Publish</a >
+									<a class="unpublish-button" th:href="@{/website/unpublished}" role="button">Unpublish</a>
+								</div>
 							</div>
 						</form>
 	</body>
