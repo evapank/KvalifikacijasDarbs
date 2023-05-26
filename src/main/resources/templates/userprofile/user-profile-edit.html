@@ -7,27 +7,31 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
-		<link href="css/pageStyle.css" rel="stylesheet"/>
+		<link href="/css/pageStyle.css" rel="stylesheet"/>
   </head>
 	</head>
 
 	<body>
-						<div th:replace="fragments/header :: header"></div>
+						<div th:replace="~{fragments/header :: header2}"></div>
+						
 						<div class="user-page-title">
 							<h1>Edit profile</h1>
 						</div>
 						<form class="user-edit-page" action="#" th:action="@{/user/__${id}__/edit}" th:object="${user}" method="post">
 							<div>
 								<label>Username</label>
-								<input type="text" th:field="*{username}" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+								<input type="text" th:field="*{username}">
+								<div class="error-message" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
 							</div>
 							<div>
 								<label>Email</label>
-								<input type="text" th:field="*{email}" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+								<input type="text" th:field="*{email}">
+								<div class="error-message" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 							</div>
 							<div>
 								<label>Password</label>
-								<input type="password" th:field="*{password}" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+								<input type="password" th:field="*{password}">
+								<div class="error-message" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 							</div>
 							<div>
 							<a class="submit-button" th:href="@{/user/{id}(id=${user.getIdUser})}" role="button">Submit</a>

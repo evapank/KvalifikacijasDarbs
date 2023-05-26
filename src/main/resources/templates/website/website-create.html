@@ -13,27 +13,27 @@
 	</head>
 
 	<body>
+						<div th:replace="~{fragments/header :: header2}"></div>
+						
 						<form action="#" th:action="@{/website/create}" th:object="${website}" method="post">
 							<div class="website-create-sidebar">
 							
-							<h1>Enter the following:</h1>
-							
 								<div class="website-create-sidebar-item">
 									<label>Title</label>
-									<input type="text" th:field="*{title}" name="title" placeholder="title">
-									<div th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+									<input type="text" th:field="*{title}" name="title" placeholder="enter title">
+									<div class="error-message" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
 								</div>
 								
 								<div class="website-create-sidebar-item">
 									<label>Heading</label>
-									<input type="text" th:field="*{heading}" name="heading" placeholder="heading">
-									<div th:if="${#fields.hasErrors('heading')}" th:errors="*{heading}"></div>
+									<input type="text" th:field="*{heading}" name="heading" placeholder="enter heading">
+									<div class="error-message" th:if="${#fields.hasErrors('heading')}" th:errors="*{heading}"></div>
 								</div>
 								
 								<div class="website-create-sidebar-item">
 									<label>Paragraph</label>
-									<textarea name="paragraph" maxlength="1000" rows="5" cols="50" th:field="*{paragraph}" placeholder="paragraph">
-									<div th:if="${#fields.hasErrors('paragraph')}" th:errors="*{paragraph}"></div>
+									<textarea name="paragraph" maxlength="1000" rows="6" th:field="*{paragraph}" placeholder="enter paragraph" />
+									<div class="error-message" th:if="${#fields.hasErrors('paragraph')}" th:errors="*{paragraph}"></div>
 								</div>
 								
 								<div class="website-create-sidebar-item">
@@ -43,9 +43,11 @@
 									</select>
 								</div>
 								
-								<a class="save-button" th:href="@{/website/save}" role="button">Save</a >
-								<a id="publishButton" class="publish-button" th:href="@{/website/published/{id}(id=${website.getIdWeb})}" role="button">Publish</a >
-								<a id="unpublishButton" class="unpublish-button" th:href="@{/website/unpublished}" role="button">Unpublish</a>
+								<div class="website-control-buttons">
+									<a class="save-button" th:href="@{/website/create}" role="button">Save</a >
+									<a id="publishButton" class="publish-button" th:href="@{/website/published/{id}(id=${website.getIdWeb})}" role="button">Publish</a >
+									<a id="unpublishButton" class="unpublish-button" th:href="@{/website/unpublished}" role="button">Unpublish</a>
+								</div>
 							</div>
 						</form>
 	</body>

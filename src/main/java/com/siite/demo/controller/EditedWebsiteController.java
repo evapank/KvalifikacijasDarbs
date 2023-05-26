@@ -29,19 +29,21 @@ public class EditedWebsiteController {
 	}
 	
 	@PostMapping("/create")
-	public String postCreateWebsite(@Valid @ModelAttribute(value="website") MyWebsite website, BindingResult result) {
+	public String postCreateWebsite(@Valid @ModelAttribute(value="website") MyWebsite website, BindingResult result){
 		
 		if(result.hasErrors()) {
 			return "website/website-create";
 		} else {
 			websiteService.insertNewWebsite(website);
 			int websiteId = website.getIdWeb();
-			return "redirect:/edit/" + websiteId;
+			System.out.println("Insterted website " + websiteService.insertNewWebsite(website));
+			System.out.println("CREATED WEBSITE ID: "+ websiteId);
+			return "redirect:/website/edit/" + websiteId;
 		}
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String getEditWebsite(Model model, MyWebsite website, @PathVariable(name = "id") int id) throws Exception {
+	public String getEditWebsite(Model model, @PathVariable(name = "id") int id) throws Exception {
 		
 		try {
 			model.addAttribute("website", websiteService.readWebsiteById(id));
