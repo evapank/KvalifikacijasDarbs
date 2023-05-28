@@ -13,9 +13,9 @@
 	</head>
 
 	<body>
-						<div th:replace="~{fragments/header :: header2}"></div>
+						<div th:replace="~{fragments/header :: header}"></div>
 						
-						<form action="#" th:action="@{/website/create}" th:object="${website}" method="post">
+						<form action="save" th:object="${website}" method="post">
 							<div class="website-create-sidebar">
 							
 								<div class="website-create-sidebar-item">

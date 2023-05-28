@@ -26,6 +26,8 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 		if(websiteRepo.existsById(website.getIdWeb())) {
 			return false;
 		} else {
+			website.setPublished(false);
+			
 			websiteRepo.save(website);
 			return true;
 		}
@@ -55,6 +57,7 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 			result.setParagraph(website.getParagraph());
 			result.setTemplate(website.getTemplate());
 			result.setOwner(website.getOwner());
+			result.setPublished(website.isPublished());
 			
 			websiteRepo.save(result);
 			
@@ -84,12 +87,17 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 	}
 
 	@Override
-	public int getOwnerIdByWebsiteId(int websiteId) {
+	public int getOwnerIdByWebsiteId(int websiteId) throws Exception {
 		
-		MyWebsite website = websiteRepo.findByIdWeb(websiteId);
-		MyUser owner = website.getOwner();
+		if(websiteRepo.existsById(websiteId)) {
+			MyWebsite website = websiteRepo.findByIdWeb(websiteId);
+			MyUser owner = website.getOwner();
+			
+			return owner.getIdUser();
+		}
 		
-		return owner.getIdUser();
+		throw new Exception("website doesn't exist");
+		
 	}
 
 	@Override
@@ -99,9 +107,12 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 			
 			MyWebsite website = websiteRepo.findByIdWeb(websiteId);
 			website.setPublished(true);
+			
+			websiteRepo.save(website);
+			
 			return true;
 		}
-		throw new Exception("can't find website");
+		throw new Exception("website doesn't exist");
 	}
 	
 	@Override
@@ -111,9 +122,12 @@ public class MyWebsiteCRUDserviceImpl implements IMyWebsiteCRUDservice{
 			
 			MyWebsite website = websiteRepo.findByIdWeb(websiteId);
 			website.setPublished(false);
-			return false;
+			
+			websiteRepo.save(website);
+			
+			return true;
 		}
-		throw new Exception("can't find website");
+		throw new Exception("website doesn't exist");
 	}
 	
 	

@@ -13,9 +13,9 @@
 	</head>
 
 	<body>
-						<div th:replace="~{fragments/header :: header2}"></div>
+						<div th:replace="~{fragments/header :: header}"></div>
 						
-						<form action="#" th:action="@{/website/create}" th:object="${website}" method="post">
+						<form action="save" th:object="${website}" method="post">
 							<div class="website-create-sidebar">
 							
 								<div class="website-create-sidebar-item">
@@ -44,7 +44,7 @@
 								</div>
 								
 								<div class="website-control-buttons">
-									<a class="save-button" th:href="@{/website/create}" role="button">Save</a >
+									<a class="save-button" th:href="@{/website/save}" role="button">Save</a >
 									<a id="publishButton" class="publish-button" th:href="@{/website/published/{id}(id=${website.getIdWeb})}" role="button">Publish</a >
 									<a id="unpublishButton" class="unpublish-button" th:href="@{/website/unpublished}" role="button">Unpublish</a>
 								</div>

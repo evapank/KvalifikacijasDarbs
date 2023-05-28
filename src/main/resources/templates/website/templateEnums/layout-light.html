@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{website-layout}">
 
 	<head>
-		<title th:text="${website.title}">title</title>
+		<title></title>
 		<meta charset="UTF-8" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,11 +13,11 @@
 	</head>
 
 	<body>
-						<div class="heading">
+						<div th:fragment="heading" class="heading">
 						<h1 th:text="${website.heading}">heading</h1>
 						</div>
 						
-						<div class="paragraph">
+						<div th:fragment="paragraph" class="paragraph">
 				    	<p th:text="${website.paragraph}">paragraph</p>
 						</div>
 	</body>

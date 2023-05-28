@@ -28,7 +28,7 @@ public class EditedWebsiteController {
 		return "website/website-create";
 	}
 	
-	@PostMapping("/create")
+	@PostMapping("/save")
 	public String postCreateWebsite(@Valid @ModelAttribute(value="website") MyWebsite website, BindingResult result){
 		
 		if(result.hasErrors()) {
@@ -65,12 +65,15 @@ public class EditedWebsiteController {
 	}
 	
 	@GetMapping("/delete/{id}")
-	public String getDeleteWebsite(Model model, @PathVariable(name = "id") int id) {
+	public String getDeleteWebsite(Model model, @PathVariable(name = "id") int id) throws Exception {
 		
-		int ownerId = websiteService.getOwnerIdByWebsiteId(id);
-		
-		model.addAttribute("website", websiteService.deleteWebsiteById(id));
-		return "redirect:/user/" + ownerId;
+		try {
+			int ownerId = websiteService.getOwnerIdByWebsiteId(id);
+			model.addAttribute("website", websiteService.deleteWebsiteById(id));
+			return "redirect:/user/" + ownerId;
+		} catch (Exception e) {
+			throw new Exception("can't find owner");
+		}
 	}
 	
 	@GetMapping("/publish/{id}")

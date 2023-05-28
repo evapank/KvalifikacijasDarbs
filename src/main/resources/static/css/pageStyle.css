@@ -8,13 +8,13 @@ html, body{
 	box-sizing: border-box;
 }
 
-.header-go-to-profile, .header-website-create{
+.header {
 	 overflow: hidden;
 	 padding: 5px 10px;
 	 background: black;
 }
 
-.header-go-to-profile a, .header-website-create a{
+.header a{
 	float: right;
 	text-align: center;
 	font-size: 15px;
@@ -23,7 +23,7 @@ html, body{
 	text-decoration: none;
 }
 
-.header-go-to-profile a:hover, .header-website-create a:hover{
+.header a:hover {
 	background-color: #8171C9;
 	color: black;
 	border-radius: 10px;

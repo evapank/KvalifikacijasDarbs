@@ -56,7 +56,6 @@ public class MyUserCRUDserviceImpl implements IMyUserCRUDservice, UserDetailsSer
 	
 	@Override
 	public boolean updateUserById(int userId, MyUser user) {
-		
 		MyUser result = new MyUser();
 		
 		if(userRepo.existsById(userId)) {
@@ -65,11 +64,10 @@ public class MyUserCRUDserviceImpl implements IMyUserCRUDservice, UserDetailsSer
 			
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 			String encodedPassword = passwordEncoder.encode(user.getPassword());
-			user.setPassword(encodedPassword);
 			
+			result.setPassword(encodedPassword);
 			result.setUsername(user.getUsername());
 			result.setEmail(user.getEmail());
-			result.setRole(user.getRole());
 			
 			userRepo.save(result);
 			

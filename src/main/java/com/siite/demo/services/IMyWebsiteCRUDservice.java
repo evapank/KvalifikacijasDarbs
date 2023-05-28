@@ -16,7 +16,7 @@ public interface IMyWebsiteCRUDservice {
 
 	public Collection<MyWebsite> getUserWebsitesbyUserId(int userId);
 	
-	public int getOwnerIdByWebsiteId(int websiteId);
+	public int getOwnerIdByWebsiteId(int websiteId) throws Exception;
 	
 	public boolean publishWebsiteById(int websiteId) throws Exception;
 

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title th:text="${website.title}">title</title>
+		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Sacramento&display=swap" rel="stylesheet">
+		<link href="/css/lightLayout.css" rel="stylesheet"/>
+  </head>
+	</head>
+
+	<body>
+						<div th:switch="${condition}">
+  							<div th:case="${true} th:replace="~{website/websiteEnums/header :: header}">light</div>
+  							<div th:case="*">FALSE</div>
+							</div>
+	</body>
+</html>
