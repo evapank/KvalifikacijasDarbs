@@ -22,6 +22,7 @@ public class PublishedWebsiteController {
 	
 	@GetMapping("/{id}")
 	public String getPublishedWebsite(Model model, @PathVariable(name = "id") int id) throws Exception {
+		
 		if(websiteService.publishWebsiteById(id)) {
 			
 			MyWebsite website = websiteService.readWebsiteById(id);
@@ -39,9 +40,8 @@ public class PublishedWebsiteController {
 			default:
 				return "error";
 			}
-			
 		}
-		throw new Exception("can't find website");
+		throw new Exception("can't find published website");
 	}
 
 }
